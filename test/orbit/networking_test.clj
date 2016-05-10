@@ -5,8 +5,6 @@
 (def mock-data-url
   "https://raw.githubusercontent.com/jleikko/orbit/master/test/orbit/networking_mock.txt")
 
-(deftest http-get-body-test
+(deftest http-get-body-test!
   (testing "Tests that the http client retrieves the mock file from the GitHub."
-    (is (.startsWith
-          (http-get-body mock-data-url)
-          "foo"))))
+    (is (= "foo\n" (http-get-body! mock-data-url)))))

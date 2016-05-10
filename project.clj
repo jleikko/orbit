@@ -8,4 +8,5 @@
                  [clj-http "2.1.0"]]
   :main ^:skip-aot orbit.core
   :target-path "target/%s"
+  :plugins [[lein-auto "0.1.2"]]
   :profiles {:uberjar {:aot :all}})

@@ -1,11 +1,18 @@
 (ns orbit.environment
   (:require [clojure.math.numeric-tower :as math]))
 
+
 ;; CONSTANTS
 
 (def earth-radius 6371)
 
-(def machine-epsilon 1e-15)
+(def machine-epsilon 1e-10)
+
+(def data-file-url "https://space-fast-track.herokuapp.com/generate")
+
+;; phones are 1m above the earth surface
+(def phone-altitude 0.001)
+
 
 ;; HELPERS
 
