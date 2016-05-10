@@ -1,7 +1,7 @@
 (ns orbit.core
-  (:gen-class))
+  (:require [orbit.networking :refer :all]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Finds a route between satellites"
   [& args]
-  (println "Hello, World!"))
+  (println (http-get-body "https://space-fast-track.herokuapp.com/generate")))

@@ -1,10 +1,12 @@
-(ns orbit.cartesian-coord-conversions-test
+(ns orbit.coordinate-conversions-test
   (:require [clojure.test :refer :all]
-            [orbit.cartesian-coord-conversions :refer :all]
-            [orbit.constants :refer :all]))
+            [orbit.coordinate-conversions :refer :all]
+            [orbit.environment :refer :all]))
+
+;; DEGREE->RADIAN
 
 (deftest radians-zero-test
-  (testing "Should convert 180 degrees to pi radians"
+  (testing "Should convert zero degrees to zero radians"
     (is (= 0.0 (radians 0)))))
 
 (deftest radians-pi-test
@@ -15,7 +17,7 @@
   (testing "Should convert -90 degrees to -pi/2 radians"
     (is (= (- (/ Math/PI 2)) (radians -90)))))
 
-
+;; ALTITUDE->RADIUS
 
 (deftest radius-zero-test
   (testing "with zero altitude should return the earth radius"
@@ -25,7 +27,7 @@
   (testing "with altitude 500 should return the earth radius + 500"
     (is (= (+ earth-radius 500) (radius 500)))))
 
-
+;; SPHERICAL->CARTESIAN (ORIGO)
 
 (deftest origo-x-test
   (testing "Should find x from the center"
@@ -39,7 +41,7 @@
   (testing "Should find z from the center"
     (is (= 0.0 (cartesian-z 0 0 0)))))
 
-
+;; SPHERICAL->CARTESIAN (NORTH POLE)
 
 (deftest north-pole-x-test
   (testing "Should find x from the north pole of a unit circle properly"
@@ -53,7 +55,7 @@
   (testing "Should find z from the north pole of a unit circle properly"
     (is (= 1.0 (cartesian-z (/ Math/PI 2) 0 1)))))
 
-
+;; SPHERICAL->CARTESIAN (SOUTH POLE)
 
 (deftest south-pole-x-test
   (testing "Should find x from the south pole of a unit circle properly"
@@ -67,6 +69,7 @@
   (testing "Should find z from the south pole of a unit circle properly"
     (is (= -1.0 (cartesian-z (- (/ Math/PI 2)) 0 1)))))
 
+;; FULL CONVERSION TEST (1 METER ABOVE THE NORTH POLE)
 
 (deftest cartesian-test
   (testing "a point 1 meter above the north pole should be converted properly"
