@@ -1,4 +1,4 @@
-(ns orbit.environment
+(ns orbit.common
   (:require [clojure.math.numeric-tower :as math]))
 
 

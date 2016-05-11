@@ -1,6 +1,6 @@
-(ns orbit.environment-test
+(ns orbit.common-test
   (:require [clojure.test :refer :all]
-            [orbit.environment :refer :all]))
+            [orbit.common :refer :all]))
 
 
 (deftest approx-equals-false-test

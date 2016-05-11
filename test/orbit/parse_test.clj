@@ -1,7 +1,7 @@
 (ns orbit.parse-test
   (:require [clojure.test :refer :all]
             [orbit.parse :refer :all]
-            [orbit.environment :refer :all]))
+            [orbit.common :refer :all]))
 
 (def expected-parsed-data
   {:seed 0.0533969490788877

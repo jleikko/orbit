@@ -1,7 +1,7 @@
-(ns orbit.coordinate-conversions-test
+(ns orbit.coords-test
   (:require [clojure.test :refer :all]
-            [orbit.coordinate-conversions :refer :all]
-            [orbit.environment :refer :all]))
+            [orbit.coords :refer :all]
+            [orbit.common :refer :all]))
 
 (deftest degree-to-radians-test
   (testing "Should convert zero degrees to zero radians"

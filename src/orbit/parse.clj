@@ -1,6 +1,6 @@
 (ns orbit.parse
   (:require [clojure.string :as str]
-            [orbit.environment :refer :all]))
+            [orbit.common :refer :all]))
 
 (defn parse-seed [raw-seed-line]
   {:seed (Double/parseDouble (subs raw-seed-line 7))})

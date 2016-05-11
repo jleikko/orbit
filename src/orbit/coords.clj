@@ -1,5 +1,5 @@
-(ns orbit.coordinate-conversions
-  (:require [orbit.environment :refer :all]))
+(ns orbit.coords
+  (:require [orbit.common :refer :all]))
 
 
 (defn radians [degrees]

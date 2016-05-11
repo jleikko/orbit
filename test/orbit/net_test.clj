@@ -8,3 +8,4 @@
 (deftest http-get-body-test!
   (testing "Tests that the http client retrieves the mock file from the GitHub."
     (is (= "foo\n" (http-get-body! mock-data-url)))))
+

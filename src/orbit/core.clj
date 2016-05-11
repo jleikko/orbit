@@ -1,7 +1,7 @@
 (ns orbit.core
-  (:require [orbit.networking :refer :all]
-            [orbit.environment :refer :all]
-            [orbit.io-parse :refer :all]))
+  (:require [orbit.net :refer :all]
+            [orbit.common :refer :all]
+            [orbit.parse :refer :all]))
 
 (defn -main
   "Finds a route between satellites"
