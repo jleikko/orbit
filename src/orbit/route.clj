@@ -1,39 +1,34 @@
 (ns orbit.route
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [orbit.intersections :refer :all]))
 
-(def intersections
-  (memoize
-    (fn [point-a point-b]
-      [{:x 1 :y 2 :z 3} {:x 4 :y 5 :z 6}])))
-
-(def intersection-between-points?
-  (memoize
-    (fn [point-a point-b intersections]
-      false)))
-
-(def line-intersects-earth?
-  (memoize
-    (fn [point-a point-b]
-  false)))
+(defn sorted [points]
+  (sort-by :id points))
 
 (def hop?
   (memoize
-    (fn [point-a point-b]
-      (if (and (line-intersects-earth? point-a point-b)
-               (intersection-between-points? point-a point-b (intersections point-a point-b)))
+    (fn [points]
+      (if (and (line-intersects-earth? points)
+               (intersection-between-points? points))
         false
         true))))
 
+;;TODO refactor more readable
 (defn routes [data tail]
-  nil)
-
-(defn separate [route-tree]
-  nil)
+  (if (hop? (sorted [(:called (:phones data)) (last tail)]))
+    [tail]
+    (let [possible-hops (filter #(not (contains? tail %)) (:sats data))]
+      (if (= 0 (count possible-hops))
+        nil
+        (concat (map
+                  #(if (hop? (sorted [% last tail]))
+                     (routes data (conj tail %))
+                     [])
+                  possible-hops))))))
 
 (defn pick-optimal [routes]
   (first (sort-by count routes)))
 
 (defn find-route [data]
-  (let [route-tree (routes data)
-        separate-routes (separate route-tree)]
-    (pick-optimal separate-routes)))
+  (let [all-routes (routes data (:calling (:phones data)))]
+    (pick-optimal all-routes)))

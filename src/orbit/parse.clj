@@ -6,7 +6,7 @@
 (defn parse-seed [raw-seed-line]
   {:seed (Double/parseDouble (subs raw-seed-line 7))})
 
-(defn parse-sat-line [raw-sat-line]
+(defn parse-sat [raw-sat-line]
   (let [splitted (str/split raw-sat-line #",")
         id (get splitted 0)
         lat (get-double splitted 1)
@@ -16,7 +16,7 @@
     (merge {:id id :lat lat :lon lon :alt alt} xyz)))
 
 (defn parse-sats [raw-sat-lines]
-    {:sats (map parse-sat-line raw-sat-lines)})
+    {:sats (map parse-sat raw-sat-lines)})
 
 (defn parse-phones [raw-phones-line]
   (let [splitted (str/split raw-phones-line #",")
