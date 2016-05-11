@@ -2,11 +2,16 @@
   (:require [clojure.test :refer :all]
             [orbit.parse :refer :all]
             [orbit.common :refer :all]
-            [orbit.parsed-data-mock :refer :all]))
+            [orbit.parsed-data-mock :refer :all]
+            [orbit.route-mock :refer :all]))
 
 (deftest parse-input-test
   (testing "Tests that input-parse splits rows and columns properly"
     (is (= mock-parsed-data (parse-input (slurp "test/orbit/raw_data_mock.txt"))))))
+
+(deftest parse-output-test
+  (testing "with mock data sould make valid string"
+    (is (= "SAT1,SAT5" (parse-output (first mock-routes))))))
 
 (deftest parse-seed-test
   (testing "parses the seed line properly"

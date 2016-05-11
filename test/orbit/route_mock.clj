@@ -33,6 +33,29 @@
                     :z 3}]
 
                   [{:id "CALLING"
+                    :lat 1
+                    :lon 2
+                    :alt 3
+                    :x 1
+                    :y 2
+                    :z 3}
+                   {:id "SAT1"
+                    :lat 4
+                    :lon 5
+                    :alt 6
+                    :x 4
+                    :y 5
+                    :z 6
+                    :dist 1200.123}
+                   {:id "CALLED"
+                    :lat 7
+                    :lon 8
+                    :alt 9
+                    :x 7
+                    :y 8
+                    :z 9}]
+
+                  [{:id "CALLING"
                     :lat -46.68418774557557
                     :lon 52.702632313282066
                     :alt phone-altitude

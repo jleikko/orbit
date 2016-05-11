@@ -46,3 +46,8 @@
         phones (parse-phones (last raw-lines))]
     (merge seed sats phones)))
 
+
+(defn parse-output [route]
+  (str/join "," (rest (butlast (map #(:id %) route)))))
+
+

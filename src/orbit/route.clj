@@ -1,30 +1,39 @@
 (ns orbit.route
   (:require [clojure.string :as str]))
 
-(defn intersections [point-a point-b]
-  [{:x 1 :y 2 :z 3}])
+(def intersections
+  (memoize
+    (fn [point-a point-b]
+      [{:x 1 :y 2 :z 3} {:x 4 :y 5 :z 6}])))
 
-(defn intersection-between-points? [point-a point-b intersection]
-  false)
+(def intersection-between-points?
+  (memoize
+    (fn [point-a point-b intersections]
+      false)))
 
-(defn intersection-with-globe? [point-a point-b]
-  false)
+(def line-intersects-earth?
+  (memoize
+    (fn [point-a point-b]
+  false)))
 
-(defn hop? [point-a point-b]
-  false)
+(def hop?
+  (memoize
+    (fn [point-a point-b]
+      (if (and (line-intersects-earth? point-a point-b)
+               (intersection-between-points? point-a point-b (intersections point-a point-b)))
+        false
+        true))))
 
-(defn hop-length [point-a point-b]
-  1200.123)
+(defn routes [data tail]
+  nil)
 
-(def routes (memoize (fn ([data]
-                             (routes data [(:calling (:phones data))]))
-                            ([data tail]
-                             nil))))
-
+(defn separate [route-tree]
+  nil)
 
 (defn pick-optimal [routes]
-  "SAT7,SAT20")
+  (first (sort-by count routes)))
 
-(defn route-to-str [route]
-  (str/join "," (rest (butlast (map #(:id %) route)))))
-
+(defn find-route [data]
+  (let [route-tree (routes data)
+        separate-routes (separate route-tree)]
+    (pick-optimal separate-routes)))
