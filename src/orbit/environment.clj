@@ -10,7 +10,6 @@
 
 (def data-file-url "https://space-fast-track.herokuapp.com/generate")
 
-;; phones are 1m above the earth surface
 (def phone-altitude 0.001)
 
 
@@ -21,3 +20,6 @@
    is less than the machine epsilon. Otherwise returns false."
   [x y]
   (< (math/abs (- x y)) machine-epsilon))
+
+(defn get-double [array index]
+  (Double/parseDouble (get array index)))

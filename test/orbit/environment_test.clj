@@ -10,3 +10,7 @@
 (deftest approx-equals-true-test
   (testing "Two numbers that are close enough are approximately equal."
     (is (true? (approx= 1e-16 2e-16)))))
+
+(deftest get-double-test
+  (testing "Returns second double from string array properly."
+    (is (= 2.34 (get-double ["1.23" "2.34" "3.45"] 1)))))

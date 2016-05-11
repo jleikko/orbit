@@ -26,19 +26,19 @@
     (is (approx= 0 (cartesian-z 0 0 0)))))
 
 (deftest spherical-to-cartesian-north-pole-test
-  (testing "Should find x from the north pole of a unit circle properly"
+  (testing "Should find x from the north pole"
     (is (approx= 0 (cartesian-x (/ Math/PI 2) 0 1))))
-  (testing "Should find y from the north pole of a unit circle properly"
+  (testing "Should find y from the north pole"
     (is (approx= 0 (cartesian-y (/ Math/PI 2) 0 1))))
-  (testing "Should find z from the north pole of a unit circle properly"
+  (testing "Should find z from the north pole"
     (is (approx= 1 (cartesian-z (/ Math/PI 2) 0 1)))))
 
 (deftest spherical-to-cartesian-south-pole-test
-  (testing "Should find x from the south pole of a unit circle properly"
+  (testing "Should find x from the south pole"
     (is (approx= 0 (cartesian-x (- (/ Math/PI 2)) 0 1))))
-  (testing "Should find y from the south pole of a unit circle properly"
+  (testing "Should find y from the south pole"
     (is (approx= 0 (cartesian-y (- (/ Math/PI 2)) 0 1))))
-  (testing "Should find z from the south pole of a unit circle properly"
+  (testing "Should find z from the south pole"
     (is (approx= -1 (cartesian-z (- (/ Math/PI 2)) 0 1)))))
 
 

@@ -78,7 +78,7 @@
 
 (deftest parse-seed-test
   (testing "parses the seed line properly"
-    (is (= {:seed "0.0533969490788877"}
+    (is (= {:seed 0.0533969490788877}
            (parse-seed "#SEED: 0.0533969490788877")))))
 
 (deftest parse-sats-test
