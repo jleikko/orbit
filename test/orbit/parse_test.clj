@@ -1,6 +1,6 @@
-(ns orbit.io-parse-test
+(ns orbit.parse-test
   (:require [clojure.test :refer :all]
-            [orbit.io-parse :refer :all]
+            [orbit.parse :refer :all]
             [orbit.environment :refer :all]))
 
 (def expected-parsed-data

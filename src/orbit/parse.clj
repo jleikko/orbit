@@ -1,4 +1,4 @@
-(ns orbit.io-parse
+(ns orbit.parse
   (:require [clojure.string :as str]
             [orbit.environment :refer :all]))
 
