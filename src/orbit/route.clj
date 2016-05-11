@@ -18,13 +18,13 @@
   (if (hop? (sorted [(:called (:phones data)) (last tail)]))
     [tail]
     (let [possible-hops (filter #(not (contains? tail %)) (:sats data))]
-      (if (= 0 (count possible-hops))
-        nil
-        (concat (map
-                  #(if (hop? (sorted [% last tail]))
-                     (routes data (conj tail %))
-                     [])
-                  possible-hops))))))
+      (concat
+        (map
+          #(if
+             (hop? (sorted [% last tail]))
+             (routes data (conj tail %))
+             [])
+          possible-hops)))))
 
 (defn pick-optimal [routes]
   (first (sort-by count routes)))
