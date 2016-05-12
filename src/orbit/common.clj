@@ -1,5 +1,6 @@
 (ns orbit.common
-  (:require [clojure.math.numeric-tower :as math]))
+  (:require [clojure.math.numeric-tower :as math]
+            [clojure.set :refer :all]))
 
 
 ;; CONSTANTS
@@ -23,3 +24,6 @@
 
 (defn get-double [array index]
   (Double/parseDouble (get array index)))
+
+(defn list-complement [main-list items-to-remove]
+  (vec (difference (set main-list) (set items-to-remove))))

@@ -36,11 +36,11 @@
 
 (defn is-between? [target value1 value2]
   (let [correct-order (< value1 value2)
-        boundary1 (if (correct-order) value1 value2)
-        boundary2 (if (correct-order) value2 value1)]
-    (and (> target boundary1) (< target boundary2)))
+        boundary1 (if correct-order value1 value2)
+        boundary2 (if correct-order value2 value1)]
+    (and (> target boundary1) (< target boundary2))))
 
-(defn is-intersection-between-points? [points a b c]
+(defn is-intersection-between-points? [x1 x2 y1 y2 z1 z2 a b c]
   (let [t (get-one-quatratic-equation-root a b c)
         x-earth (get-x x1 x2 t)
         y-earth (get-y y1 y2 t)
@@ -60,6 +60,6 @@
         a (get-a x1 x2 y1 y2 z1 z2)
         b (get-b x1 x2 y1 y2 z1 z2)
         c (get-c x1 y1 z1 earth-radius)
-        line-intersects-earth (quatratic-equation-has-roots? a b c)])
+        line-intersects-earth (quatratic-equation-has-roots? a b c)]
   (and line-intersects-earth
-       (is-intersection-between-points? x1 x2 y1 y2 z1 z2 a b c)))
+       (is-intersection-between-points? x1 x2 y1 y2 z1 z2 a b c))))
