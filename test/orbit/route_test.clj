@@ -5,10 +5,6 @@
             [orbit.route-mock :refer :all]
             [orbit.parsed-data-mock :refer :all]))
 
-(deftest sorted-test
-  (testing "sorts points to a valid order to support memoize better"
-    (is (= [{:id "aaa"} {:id "bbb"}] (sorted [{:id "bbb"} {:id "aaa"}])))))
-
 (deftest hop?-test
   (testing "hop is not possible through the earth"
     (is (false? (hop? {:x 0 :y 9000 :z 0}
@@ -20,7 +16,7 @@
     (is (true? (hop? {:x 0 :y 9000 :z 9000}
                      {:x 0 :y (- 800) :z 8000}))))
 
-(deftest routes-test
+(deftest find-routes-test
   (testing "with mock data should find routes"
     (is (= mock-routes (routes mock-parsed-data)))))
 
