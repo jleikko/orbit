@@ -7,18 +7,14 @@
 
 (deftest hop?-test
   (testing "hop is not possible through the earth"
-    (is (false? (hop? {:x 0 :y 9000 :z 0}
-                      {:x 0 :y (- 9000) :z 0}))))
+    (is (false? (hop? [{:x 0 :y 9000 :z 0}
+                      {:x 0 :y (- 9000) :z 0}]))))
   (testing "hop is possible above the earth"
-    (is (true? (hop? {:x 0 :y 9000 :z 9000}
-                     {:x 0 :y (- 9000) :z 9000})))))
+    (is (true? (hop? [{:x 0 :y 9000 :z 9000}
+                     {:x 0 :y (- 9000) :z 9000}]))))
   (testing "hop is possible also vertically above the earth"
-    (is (true? (hop? {:x 0 :y 9000 :z 9000}
-                     {:x 0 :y (- 800) :z 8000}))))
-
-(deftest find-routes-test
-  (testing "with mock data should find routes"
-    (is (= mock-routes (routes mock-parsed-data)))))
+    (is (true? (hop? [{:x 0 :y 9000 :z 9000}
+                     {:x 0 :y (- 800) :z 8000}])))))
 
 (deftest pick-optimal-test
   (testing "picks the shortest route from available routes"
