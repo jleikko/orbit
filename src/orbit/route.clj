@@ -25,9 +25,11 @@
          try-directly (fn []
                         (if (hop? [(last tail) (:called (:phones data))])
                           [(conj tail (:called (:phones data)))]
-                          []))]
-   (concat
-     (try-directly)
+                          []))
+         direct-route (try-directly)]
+   (if
+     (> (count direct-route) 0)
+     direct-route
      (try-branches)))))
 
 (defn pick-optimal [routes]
