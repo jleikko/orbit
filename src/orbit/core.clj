@@ -14,6 +14,6 @@
         routes (find-routes parsed-data)
         route (pick-optimal routes)]
     (prn "SEED" (:seed parsed-data))
-    (prn "BEST ROUTE" (parse-output route))))
-    ;;(prn "ALL ROUTES: " (map parse-output routes))
+    (prn "BEST ROUTE" (parse-output route))
+    (parse-output route)))
 

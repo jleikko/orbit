@@ -1,3 +1,9 @@
 # orbit
 
-Orbital Challenge mvp solution
+Orbital Challenge solution by Jaakko Leikko
+
+![Mathematics](maths.jpg "Mathematics")
+
+## usage
+
+lein run
