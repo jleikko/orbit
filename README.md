@@ -2,7 +2,7 @@
 
 Orbital Challenge solution by Jaakko Leikko
 
-![Mathematics](maths.jpg "Mathematics")
+![Mathematics](maths.png "Mathematics")
 
 ## usage
 
